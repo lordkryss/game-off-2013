@@ -20,6 +20,7 @@ class Hero extends Movable
 		super(x, y, graphic, mask);
 		set_graphic(Image.createRect(20, 20, 0x123456));
 		direction = new Point();
+		setHitboxTo(graphic);
 	}
 	
 	
@@ -30,7 +31,14 @@ class Hero extends Movable
 			direction.x++;
 		if (Input.check("left"))
 			direction.x--;
-		acceleration.x = direction.x * 100;		 
+		acceleration.x = direction.x * 1000;		 
 		super.update();
+	}
+	
+	override public function moveCollideY(e:Entity):Bool 
+	{
+		trace("collided");
+		acceleration.y = 0;
+		return super.moveCollideY(e);
 	}
 }
