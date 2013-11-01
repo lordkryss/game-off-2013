@@ -52,8 +52,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/preloader/haxepunk.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		className.set ("graphics/tiles.png", __ASSET__graphics_tiles_png);
+		type.set ("graphics/tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_5);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		className.set ("font/04B_03__.ttf", __ASSET__font_6);
+		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		className.set ("maps/test.tmx", __ASSET__maps_test_tmx);
+		type.set ("maps/test.tmx", Reflect.field (AssetType, "binary".toUpperCase ()));
 		
 		
 		#elseif html5
@@ -74,8 +80,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/preloader/haxepunk.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		path.set ("graphics/tiles.png", "graphics/tiles.png");
+		type.set ("graphics/tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_5);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		className.set ("font/04B_03__.ttf", __ASSET__font_6);
+		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		path.set ("maps/test.tmx", "maps/test.tmx");
+		type.set ("maps/test.tmx", Reflect.field (AssetType, "binary".toUpperCase ()));
 		
 		
 		#else
@@ -458,7 +470,10 @@ class __ASSET__gfx_debug_console_play_png extends flash.display.BitmapData { pub
 class __ASSET__gfx_debug_console_step_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_preloader_haxepunk_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__font_04b_03___ttf extends flash.text.Font { }
+class __ASSET__graphics_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__font_5 extends flash.text.Font { }
+class __ASSET__font_6 extends flash.text.Font { }
+class __ASSET__maps_test_tmx extends flash.utils.ByteArray { }
 
 
 #elseif html5
@@ -471,7 +486,10 @@ class __ASSET__font_5 extends flash.text.Font { }
 
 
 class __ASSET__font_04b_03___ttf extends flash.text.Font { }
+
 class __ASSET__font_5 extends flash.text.Font { }
+class __ASSET__font_6 extends flash.text.Font { }
+
 
 
 #end

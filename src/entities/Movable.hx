@@ -32,7 +32,7 @@ class Movable extends Entity
 		speed.y += acceleration.y;
 		speed.x -= speed.x * drag * HXP.elapsed;
 		speed.y -= speed.y * drag * HXP.elapsed;
-		moveBy(speed.x*HXP.elapsed, speed.y*HXP.elapsed);
+		moveBy(speed.x*HXP.elapsed, speed.y*HXP.elapsed,"walls");
 		super.update();
 	}
 }
