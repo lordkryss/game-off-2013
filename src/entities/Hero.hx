@@ -57,6 +57,9 @@ class Hero extends Movable
 		{
 			become(big);
 		}
+		
+		HXP.camera.x = x-HXP.halfWidth;
+		HXP.camera.y = y - HXP.halfHeight;
 		//trace(touchingDown +" " + speed.y);
 	}
 	
