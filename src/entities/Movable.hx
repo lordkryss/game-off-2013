@@ -14,7 +14,7 @@ import flash.geom.Point;
 class Movable extends Entity
 {
 	public var SPEED:Int = 150;
-	public var JUMP_FORCE:Int = 600;
+	public var JUMP_FORCE:Int = 400;
 	public var GRAVITY:Int = 980;
 	
 	public var hasGravity:Bool = true;

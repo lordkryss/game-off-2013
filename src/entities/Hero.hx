@@ -34,9 +34,9 @@ class Hero extends Movable
 			direction.x--;
 		if (Input.pressed("jump") && touchingDown)
 			speed.y = -JUMP_FORCE;
+		if (Input.released("jump"))
+			speed.y = Math.max(speed.y,-JUMP_FORCE / 2);
 		speed.x = direction.x * SPEED;	 
 		super.update();
-		
-		trace(touchingDown+" "+speed.y);
 	}
 }
