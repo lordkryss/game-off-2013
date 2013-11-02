@@ -20,19 +20,21 @@ class Movable extends Entity
 	public var hasGravity:Bool = true;
 	public var speed:Point;
 	public var drag:Float = 10;
-	public var touchingDown:Bool=false;
+	public var touchingDown:Bool = false;
+	public var mass:Float = 1;
 	
 	public function new(x:Float=0, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
 		speed = new Point(0, 0);
-		super(x, y, graphic, mask);
+		super(x, y);
 	}
 	
 	override public function update():Void 
 	{
 		if (hasGravity)
 		{
-			speed.y += GRAVITY*HXP.elapsed;
+			//trace(mass);
+			speed.y += GRAVITY*mass*HXP.elapsed;
 		}
 		touchingDown = false;
 		moveBy(speed.x * HXP.elapsed, speed.y * HXP.elapsed, "walls");

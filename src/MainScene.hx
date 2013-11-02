@@ -3,7 +3,9 @@ import com.haxepunk.Scene;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import entities.BigHero;
 import entities.Hero;
+import entities.NormalHero;
 import openfl.Assets;
 
 class MainScene extends Scene
@@ -16,7 +18,16 @@ class MainScene extends Scene
 		
 		addTestLevel();
 		
-		add(new Hero());
+		createHeroes();
+		
+		add(new NormalHero());
+		//add(new BigHero());
+	}
+	
+	function createHeroes() 
+	{
+		Hero.normal = new NormalHero();
+		Hero.big = new BigHero();
 	}
 	
 	function addTestLevel() 
