@@ -101,6 +101,7 @@ class Hero extends Movable
 				{
 					fixed = true;
 					x = x-diff;
+					break;
 				}else if (collide("walls", x, y+diff) == null)
 				{
 					fixed = true;
