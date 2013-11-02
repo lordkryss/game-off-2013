@@ -14,7 +14,7 @@ import flash.geom.Point;
 class Movable extends Entity
 {
 	public var SPEED:Int = 150;
-	public var JUMP_FORCE:Int = 400;
+	public var JUMP_FORCE:Int = 500;
 	public var GRAVITY:Int = 980;
 	
 	public var hasGravity:Bool = true;
@@ -44,7 +44,14 @@ class Movable extends Entity
 	
 	override public function moveCollideY(e:Entity):Bool 
 	{
-		speed.y = Math.min(speed.y,100);//this way touchingDown doesn't keep changing
+		if (speed.y > 0)
+		{
+			speed.y = Math.min(speed.y, 100);//this way touchingDown doesn't keep changing
+		}else
+		{
+			speed.y *= 0.5;
+			//trace("MY HEAD!");
+		}
 		touchingDown = true;
 		return super.moveCollideY(e);
 	}
