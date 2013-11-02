@@ -72,7 +72,6 @@ class Hero extends Movable
 		HXP.scene.updateLists();
 		if (!who.fixPosition())
 		{
-			trace("not fixed");
 			HXP.scene.add(this);
 			HXP.scene.remove(who);
 		}
@@ -82,7 +81,7 @@ class Hero extends Movable
 	{
 		var fixed = false;
 		var e = collide("walls", x, y);
-		trace(e);
+		//trace(e);
 		if (e == null)
 		{
 			fixed = true;//nothing to fix
@@ -92,20 +91,21 @@ class Hero extends Movable
 			{
 				if (collide("walls", x+diff, y) == null)
 				{
-					trace("OK");
 					fixed = true;
 					x = x+diff;
 					break;
 				}else if (collide("walls", x-diff, y) == null)
 				{
-					trace("OK");
 					fixed = true;
 					x = x-diff;
+				}else if (collide("walls", x, y+diff) == null)
+				{
+					fixed = true;
+					y = y+diff;
 					break;
 				}
 			}
 		}
-		trace("FIXED: " + fixed);
 		return fixed;
 	}
 }
