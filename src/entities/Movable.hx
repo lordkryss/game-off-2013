@@ -13,35 +13,39 @@ import flash.geom.Point;
  */
 class Movable extends Entity
 {
-	public var gravity:Point;
+	public var SPEED:Int = 150;
+	public var JUMP_FORCE:Int = 600;
+	public var GRAVITY:Int = 980;
+	
 	public var hasGravity:Bool = true;
-	public var acceleration:Point;
 	public var speed:Point;
 	public var drag:Float = 10;
+	public var touchingDown:Bool=false;
 	
 	public function new(x:Float=0, y:Float=0, graphic:Graphic=null, mask:Mask=null) 
 	{
-		gravity = new Point(0, 500);
-		acceleration = new Point(0, 0);
 		speed = new Point(0, 0);
 		super(x, y, graphic, mask);
 	}
 	
 	override public function update():Void 
 	{
-		speed.x += acceleration.x*HXP.elapsed;
-		speed.y += acceleration.y * HXP.elapsed;
-		
-		speed.x -= speed.x * drag * HXP.elapsed;
-		speed.y -= speed.y * drag * HXP.elapsed;
-		
 		if (hasGravity)
 		{
-			speed.x += gravity.x*HXP.elapsed;
-			speed.y += gravity.y*HXP.elapsed;
+			speed.y += GRAVITY*HXP.elapsed;
 		}
+		touchingDown = false;
+		moveBy(speed.x * HXP.elapsed, speed.y * HXP.elapsed, "walls");
 		
-		moveBy(speed.x*HXP.elapsed, speed.y*HXP.elapsed,"walls");
+		speed.x -= speed.x * drag * HXP.elapsed;		
 		super.update();
+		
+	}
+	
+	override public function moveCollideY(e:Entity):Bool 
+	{
+		speed.y = Math.min(speed.y,100);//this way touchingDown doesn't keep changing
+		touchingDown = true;
+		return super.moveCollideY(e);
 	}
 }

@@ -15,6 +15,7 @@ import flash.geom.Point;
 class Hero extends Movable
 {
 	var direction:Point;
+	
 	public function new(x:Float=100, y:Float=100) 
 	{
 		super(x, y, graphic, mask);
@@ -31,14 +32,11 @@ class Hero extends Movable
 			direction.x++;
 		if (Input.check("left"))
 			direction.x--;
-		acceleration.x = direction.x * 1000;		 
+		if (Input.pressed("jump") && touchingDown)
+			speed.y = -JUMP_FORCE;
+		speed.x = direction.x * SPEED;	 
 		super.update();
-	}
-	
-	override public function moveCollideY(e:Entity):Bool 
-	{
-		trace("collided");
-		acceleration.y = 0;
-		return super.moveCollideY(e);
+		
+		trace(touchingDown+" "+speed.y);
 	}
 }
