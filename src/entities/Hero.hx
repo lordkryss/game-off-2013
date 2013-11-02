@@ -47,7 +47,7 @@ class Hero extends Movable
 			
 		speed.x = direction.x * SPEED;	
 		
-		super.update();
+		
 		
 		if (Input.pressed(Key.J))
 		{
@@ -60,16 +60,21 @@ class Hero extends Movable
 		
 		var camTargetX = (x - HXP.halfWidth);
 		var camTargetY = (y - HXP.halfHeight);
-		/*if (Math.abs(camTargetX-HXP.camera.x)>50)
+		if (Math.abs(camTargetX-HXP.camera.x)>50)
 		{
 			HXP.camera.x += (camTargetX-HXP.camera.x)*HXP.elapsed;
-		}*/
+		}
+		
 		trace(camTargetY - HXP.camera.y);
 		if (camTargetY - HXP.camera.y > 0 || camTargetY - HXP.camera.y < -125)
 		{
 			HXP.camera.y += (camTargetY - HXP.camera.y) * HXP.elapsed;
 		}
+		HXP.camera.x = Std.int(HXP.camera.x);
+		HXP.camera.y = Std.int(HXP.camera.y);
+		super.update();
 		//trace(touchingDown +" " + speed.y);
+		
 	}
 	
 	public function become(who:Hero) 
