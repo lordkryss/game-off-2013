@@ -54,7 +54,10 @@ class Movable extends Entity
 			speed.y *= 0.5;
 			//trace("MY HEAD!");
 		}
-		touchingDown = true;
+		if (collide("walls", x, y + 1) != null)
+		{
+			touchingDown = true;
+		}
 		return super.moveCollideY(e);
 	}
 }

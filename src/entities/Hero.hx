@@ -40,7 +40,7 @@ class Hero extends Movable
 			direction.x++;
 		if (Input.check("left"))
 			direction.x--;
-		if (Input.pressed("jump") && touchingDown)
+		if (Input.check("jump") && touchingDown)
 			speed.y = -JUMP_FORCE;
 		if (Input.released("jump"))
 			speed.y = Math.max(speed.y, -JUMP_FORCE / 2);
