@@ -12,7 +12,7 @@ class MainScene extends Scene
 {
 	public override function begin()
 	{
-		HXP.stage.color = 0xFFbababa;
+		//HXP.stage.color = 0xFFbababa;
 		
 		setUpInput();
 		
@@ -20,8 +20,16 @@ class MainScene extends Scene
 		
 		createHeroes();
 		
+		Camera.init();
+		
 		add(new NormalHero());
 		//add(new BigHero());
+	}
+	
+	override public function update()
+	{
+		Camera.update();
+		super.update();
 	}
 	
 	function createHeroes() 

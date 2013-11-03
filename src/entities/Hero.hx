@@ -53,25 +53,23 @@ class Hero extends Movable
 		{
 			become(normal);
 		}
+		
 		if (Input.pressed(Key.K))
 		{
 			become(big);
 		}
 		
-		var camTargetX = (x - HXP.halfWidth);
-		var camTargetY = (y - HXP.halfHeight);
-		if (Math.abs(camTargetX-HXP.camera.x)>50)
+		if (Math.abs(x-Camera.x)>50)
 		{
-			HXP.camera.x += (camTargetX-HXP.camera.x)*HXP.elapsed;
+			Camera.x = x;
 		}
 		
-		trace(camTargetY - HXP.camera.y);
-		if (camTargetY - HXP.camera.y > 0 || camTargetY - HXP.camera.y < -125)
+		//trace(y - Camera.y);
+		if (Math.abs(y-Camera.y)>180 || (Math.abs(y-Camera.y)>32) && touchingDown)
 		{
-			HXP.camera.y += (camTargetY - HXP.camera.y) * HXP.elapsed;
+			Camera.y = y;
 		}
-		HXP.camera.x = Std.int(HXP.camera.x);
-		HXP.camera.y = Std.int(HXP.camera.y);
+
 		super.update();
 		//trace(touchingDown +" " + speed.y);
 		
