@@ -89,6 +89,7 @@ class Hero extends Movable
 		{
 			HXP.scene.add(this);
 			HXP.scene.remove(who);
+			HXP.scene.updateLists();
 		}
 	}
 	
