@@ -59,7 +59,7 @@ class Hero extends Movable
 			become(big);
 		}
 		
-		if (Math.abs(x-Camera.x)>50)
+		if (Math.abs(x-Camera.x)>0)
 		{
 			Camera.x = x;
 		}
